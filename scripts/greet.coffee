@@ -21,17 +21,20 @@
 module.exports = (robot) ->
 
   robot.respond /おはよう/i, (msg) ->
-    msg.send "おはようございます！"
+    msg.reply "おはようございます！"
 
+# ここから↓が今回追加したやつ
 
-    robot.hear /((疲|つか)れ|I'm tired.)/i, (msg) ->
-      goodnight = msg.random [
-      "おつかれさま"
-      "おつかれさまです"
-      "おつかれさま"
-      "おつかれさま、また明日！"
-      "おつかれさま、また明日！" 
-      "おつかれさま" 
-      "おつかれさま"
+  robot.respond /(おやす(|み)|Good Night)/i, (msg) ->
+    goodnight = msg.random [
+      "おやすみなさい"
+      "おやすみなさい"
+      "おやすみなさい"
+      "おやすみなさい、また明日！"
+      "おやすみなさい、また明日！" 
+      "もう私も寝ますね！おやすみなさい" 
+      "もう私も寝ますね！おやすみなさい"
+      "もう寝ちゃうんですか？"
+      "今日は一緒に寝ますか？"
     ]
     msg.reply "#{goodnight}"
